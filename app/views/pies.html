@@ -1,0 +1,9 @@
+<div class="cover-container view-container">
+	<h2 ng-if="pies.length == 0">There are no pie charts created. <br> 'Click on Create' Pie at the bottom</h2>
+	<div ng-repeat="pie in pies" class="col-md-4 pie-box anim animate-repeat" ng-click="editPie(pie)">
+		<div class="delete" ng-click="deleteChart(pie)">x</div>
+		<pie-chart slices="{{pie.slices}}"></pie-chart>
+		<div >{{pie.title}}</div>
+	</div>
+</div>
+<div class="create-button" ng-click="createPie()">Create Pie</div>

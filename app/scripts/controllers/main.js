@@ -1,0 +1,17 @@
+'use strict';
+
+/**
+ * @ngdoc function
+ * @name pieGenApp.controller:MainCtrl
+ * @description
+ * # MainCtrl
+ * Controller of the pieGenApp
+ */
+angular.module('pieGenApp')
+	.controller('MainCtrl', function($scope) {
+		$scope.awesomeThings = [
+			'HTML5 Boilerplate',
+			'AngularJS',
+			'Karma'
+		];
+	});

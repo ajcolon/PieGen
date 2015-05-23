@@ -1,0 +1,27 @@
+<div class="cover-container pie-manager-container">
+	<div class="row pie-canvas">
+	  <div class="col-md-8 right-border">
+	  	<pie-chart slices="{{slices}}"></pie-chart>
+	  </div>
+	  <div class="col-md-4">
+	  		<div class="slices"> 
+	  			 <span><input placeholder="Label" type="text" ng-model="newslicelbl" class="number-input"/></span>
+	  			<span><input placeholder="Value" type="text" ng-model="newsliceval"   min="0" class="number-input" to-number /></span>
+	  			<span ng-click="addSlice(newslicelbl, newsliceval)" class="add-slice-btn"> Add Slice</span>
+	  		</span>
+	  		</div>
+	  		<hr>
+	  		<div ng-repeat="slice in slices" class="pie-slices">
+	  			<span><input ng-model="slice.name" type="text" ng-enter="updateSliceInfo(slice.name,slice.value)"></span><span>:</span>
+	  			<span><input ng-model="slice.value" type="text" ng-enter="updateSliceInfo(slice.name,slice.value)"></span>
+	  			<span class="delete-slice-btn" ng-click="deleteSlice(slice)">x</span>
+	  		</div>
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="pie-title"><input ng-model="pie.title" type="text" ng-enter="updatePieInfo()"> </div>
+	</div>
+	<div class="row">
+	  <div class="pie-description"><input ng-model="pie.description" type="text" ng-enter="updatePieInfo()"></div>
+	</div>
+</div>
