@@ -111,7 +111,7 @@ angular.module('pieGenApp')
       },
       addSlice: function(pie, slice) {
         var req = serverAddr + 'pie_charts/' + pie.id + "/slices/";
-        var jsonString = $.param(pie);
+        var jsonString = $.param(slice);
         var deferred = $q.defer();
         $http({
           method: 'POST',
@@ -119,7 +119,7 @@ angular.module('pieGenApp')
           headers: header,
           data: jsonString
         }).success(function(response) {
-          deferred.resolve(response.data);
+          deferred.resolve(response);
           AlertMngr.addAlert("Pie Slice Added", "success");
         }).error(function(response) {
           AlertMngr.addAlert("Pie Slice Could not Be Added", "danger");
@@ -130,7 +130,7 @@ angular.module('pieGenApp')
       updateSlice: function(pie, slice) {
         var req = serverAddr + 'pie_charts/' + pie.id + "/slices/";
 
-        var jsonString = $.param(pie);
+        var jsonString = $.param(slice);
         var deferred = $q.defer();
         $http({
           method: 'PATCH',
