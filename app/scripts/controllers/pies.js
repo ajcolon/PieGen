@@ -8,7 +8,7 @@
  * Controller of the pieGenApp
  */
 angular.module('pieGenApp')
-  .controller('PiesCtrl', function($scope, pieData, $location) {
+  .controller('PiesCtrl', function($scope, pieData, $location, AlertMngr) {
     $scope.pies = [];
 
     $scope.loadPies = function() {

@@ -8,25 +8,46 @@
  * Factory in the pieGenApp. Handles Requests to the backend
  */
 angular.module('pieGenApp')
-  .factory('pieData', function($http, AlertMngr) {
+  .factory('pieData', function($http, AlertMngr, $q) {
     var serverAddr = "https://pie-chart.herokuapp.com/";
+    var header = {
+      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+    };
     var pieService = {
       getPies: function() {
-        // $http returns a promise, which has a then function, which also returns a promise
-        var promise = $http.get(serverAddr + 'pie_charts').then(function(response) {
-          AlertMngr.addAlert("Pie List Retrieved", "success");
-          return response.data;
-        });
-        // Return the promise to the controller
-        return promise;
+        var req = serverAddr + 'pie_charts/';
+
+        var deferred = $q.defer();
+        $http({
+          method: 'GET',
+          url: req,
+          headers: header
+        }).success(function(response) {
+          deferred.resolve(response);
+          AlertMngr.addAlert("Pie List Retrived", "success");
+        }).error(function(response) {
+          AlertMngr.addAlert("Pie List could not be Retrieved", "danger");
+          deferred.reject;
+        })
+        return deferred.promise;
+
       },
       getPie: function(id) {
-        // $http returns a promise, which has a then function, which also returns a promise
-        var promise = $http.get(serverAddr + 'pie_charts/' + id).then(function(response) {
-          return response.data;
-        });
-        // Return the promise to the controller
-        return promise;
+        var req = serverAddr + 'pie_charts/' + id;
+
+        var deferred = $q.defer();
+        $http({
+          method: 'GET',
+          url: req,
+          headers: header
+        }).success(function(response) {
+          deferred.resolve(response);
+          AlertMngr.addAlert("Pie Information Received", "success");
+        }).error(function(response) {
+          AlertMngr.addAlert("Pie Information could not be Retrieved", "danger");
+          deferred.reject;
+        })
+        return deferred.promise;
       },
       getSlices: function(id) {
         var req = serverAddr + 'pie_charts/' + id + "/slices/"
@@ -36,103 +57,111 @@ angular.module('pieGenApp')
         return promise;
       },
       deletePie: function(id) {
-        var req = serverAddr + 'pie_charts/' + id
-        var header = {
-          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-        };
-        var promise = $http({
+        var req = serverAddr + 'pie_charts/' + id;
+        var deferred = $q.defer();
+        $http({
           method: 'DELETE',
           url: req,
           headers: header
-        }).then(function(response) {
+        }).success(function(response) {
+          deferred.resolve(response.data);
           AlertMngr.addAlert("Pie Deleted", "success");
-          return response.data;
-        });
-
-        return promise;
+        }).error(function(response) {
+          AlertMngr.addAlert("Pie could not be Deleted", "danger");
+          deferred.reject;
+        })
+        return deferred.promise;
       },
       createPie: function(pie) {
         var req = serverAddr + 'pie_charts';
-        var header = {
-          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-        };
         var jsonString = $.param(pie);
-        var promise = $http({
-          method: 'POST',
+        var deferred = $q.defer();
+        $http({
+          method: 'DELETE',
           url: req,
           headers: header,
           data: jsonString
-        }).then(function(response) {
+        }).success(function(response) {
+          deferred.resolve(response.data);
           AlertMngr.addAlert("Pie Created", "success");
-          return response.data;
-        });
-        return promise;
+        }).error(function(response) {
+          AlertMngr.addAlert("Pie could not be Created", "danger");
+          deferred.reject;
+        })
+        return deferred.promise;
+
       },
       updatePie: function(pie) {
         var req = serverAddr + 'pie_charts/' + pie.id;
-        var header = {
-          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-        };
         var jsonString = $.param(pie);
-        var promise = $http({
+        var deferred = $q.defer();
+        $http({
           method: 'PATCH',
           url: req,
           headers: header,
           data: jsonString
-        }).then(function(response) {
-          AlertMngr.addAlert("Pie Information Updated", "success");
-          return response.data;
-        });
-        return promise;
+        }).success(function(response) {
+          deferred.resolve(response.data);
+          AlertMngr.addAlert("Pie Updated", "success");
+        }).error(function(response) {
+          AlertMngr.addAlert("Pie could not be Updated", "danger");
+          deferred.reject;
+        })
+        return deferred.promise;
       },
       addSlice: function(pie, slice) {
         var req = serverAddr + 'pie_charts/' + pie.id + "/slices/";
-        var header = {
-          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-        };
-        var jsonString = $.param(slice);
-        var promise = $http({
+        var jsonString = $.param(pie);
+        var deferred = $q.defer();
+        $http({
           method: 'POST',
           url: req,
           headers: header,
           data: jsonString
-        }).then(function(response) {
+        }).success(function(response) {
+          deferred.resolve(response.data);
           AlertMngr.addAlert("Pie Slice Added", "success");
-          return response.data;
-        });
-        return promise;
+        }).error(function(response) {
+          AlertMngr.addAlert("Pie Slice Could not Be Added", "danger");
+          deferred.reject;
+        })
+        return deferred.promise;
       },
       updateSlice: function(pie, slice) {
         var req = serverAddr + 'pie_charts/' + pie.id + "/slices/";
-        var header = {
-          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-        };
-        var jsonString = $.param(slice);
-        var promise = $http({
+
+        var jsonString = $.param(pie);
+        var deferred = $q.defer();
+        $http({
           method: 'PATCH',
           url: req,
           headers: header,
           data: jsonString
-        }).then(function(response) {
+        }).success(function(response) {
+          deferred.resolve(response.data);
           AlertMngr.addAlert("Pie Slice Updated", "success");
-          return response.data;
-        });
-        return promise;
+        }).error(function(response) {
+          AlertMngr.addAlert("Pie Slice Could not Be Updated", "danger");
+          deferred.reject;
+        })
+        return deferred.promise;
+
       },
       deleteSlice: function(pie, slice) {
         var req = serverAddr + 'pie_charts/' + pie.id + "/slices/" + slice.id;
-        var header = {
-          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-        };
-        var promise = $http({
+        var deferred = $q.defer();
+        $http({
           method: 'DELETE',
           url: req,
           headers: header
-        }).then(function(response) {
+        }).success(function(response) {
+          deferred.resolve(response.data);
           AlertMngr.addAlert("Pie Slice Deleted", "success");
-          return response.data;
-        });
-        return promise;
+        }).error(function(response) {
+          AlertMngr.addAlert("Pie Slice Could not Be Deleted", "danger");
+          deferred.reject;
+        })
+        return deferred.promise;
       }
     };
     return pieService;
