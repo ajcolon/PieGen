@@ -11,8 +11,8 @@ angular.module('pieGenApp')
   .factory('pieData', function($http, AlertMngr, $q) {
     var serverAddr = "https://pie-chart.herokuapp.com/";
     var header = {
-      //'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-      'Content-type': 'application/json'
+      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      //'Content-type': 'application/json'
     };
     var pieService = {
       getPies: function() {
