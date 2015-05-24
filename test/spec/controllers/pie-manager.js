@@ -16,7 +16,10 @@ describe('Controller: PieManagerCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
+  it('should have a default pie value', function () {
+    expect(scope.pie).toBe({
+      "title": "title",
+      "description": "description"
+    });
   });
 });

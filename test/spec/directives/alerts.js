@@ -8,13 +8,15 @@ describe('Directive: alerts', function () {
   var element,
     scope;
 
-  beforeEach(inject(function ($rootScope) {
+  beforeEach(inject(function ($rootScope, AlertMngr) {
     scope = $rootScope.$new();
   }));
 
-  it('should make hidden element visible', inject(function ($compile) {
+  AlertMngr.addAlert("msg","danger");
+
+  it('should show alert inside the element', inject(function ($compile) {
     element = angular.element('<alerts></alerts>');
     element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the alerts directive');
+    expect(element.text()).toBe('msg');
   }));
 });

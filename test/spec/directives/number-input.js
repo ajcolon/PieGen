@@ -12,9 +12,9 @@ describe('Directive: numberInput', function () {
     scope = $rootScope.$new();
   }));
 
-  it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<number-input></number-input>');
+  it('should not allow elements to have letters', inject(function ($compile) {
+    element = angular.element('<div number-input></div>');
     element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the numberInput directive');
+    expect(element.text()).toBe('');
   }));
 });

@@ -12,9 +12,9 @@ describe('Directive: pie', function () {
     scope = $rootScope.$new();
   }));
 
-  it('should make hidden element visible', inject(function ($compile) {
+  it('should have an nvd3 element inside', inject(function ($compile) {
     element = angular.element('<pie></pie>');
     element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the pie directive');
+    expect(element.text()).toContain('nvd3');
   }));
 });

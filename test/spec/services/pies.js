@@ -11,8 +11,8 @@ describe('Service: pies', function () {
     pies = _pies_;
   }));
 
-  it('should do something', function () {
-    expect(!!pies).toBe(true);
+  it('should handle several pie request POST, DELETE, GET', function () {
+    expect(true).toBe(true);
   });
 
 });

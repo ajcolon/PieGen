@@ -15,4 +15,9 @@ describe('Service: alertmngr', function () {
     expect(!!alertmngr).toBe(true);
   });
 
+  it("should add an element to the alerts",function(){
+    alertmngr.addAlert("msg","type");
+    expect(alertmngr.alerts.length).toBe(1);
+  });
+
 });

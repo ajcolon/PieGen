@@ -13,7 +13,7 @@ angular.module('pieGenApp')
     $scope.pie = {
       "title": "title",
       "description": "description"
-    }
+    };
     $scope.slices = [];
 
     if ($scope.isEdit) {
