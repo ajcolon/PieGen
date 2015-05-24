@@ -12,8 +12,8 @@
 	  		</div>
 	  		<hr>
 	  		<div ng-repeat="slice in slices" class="pie-slices">
-	  			<span><input ng-model="slice.name" type="text" ng-enter="updateSliceInfo(slice.name,slice.value)" ng-blur="updateSliceInfo(slice.name,slice.value)"></span><span>:</span>
-	  			<span><input ng-model="slice.value" type="text" ng-enter="updateSliceInfo(slice.name,slice.value)" ng-blur="updateSliceInfo(slice.name,slice.value)"></span>
+	  			<span><input ng-model="slice.name" type="text" ng-enter="updateSliceInfo(slice)" ng-blur="updateSliceInfo(slice)"></span><span>:</span>
+	  			<span><input ng-model="slice.value" type="text" ng-enter="updateSliceInfo(slice)" ng-blur="updateSliceInfo(slice)"></span>
 	  			<span class="delete-slice-btn" ng-click="deleteSlice(slice)">x</span>
 	  		</div>
 	  </div>

@@ -19,11 +19,15 @@ angular.module('pieGenApp')
     if ($scope.isEdit) {
       pieData.getPie($routeParams.id).then(function(d) {
         $scope.pie = d;
-        pieData.getSlices($scope.pie.id).then(function(slices) {
-          $scope.slices = slices;
-        });
+        $scope.loadSlices();
       });
     }
+
+  $scope.loadSlices = function() {
+    pieData.getSlices($scope.pie.id).then(function(slices) {
+      $scope.slices = slices;
+    });
+  }
 
     $scope.addSlice = function(sliceLbl, sliceVal) {
       if (sliceVal === "" || typeof sliceVal === "undefined" || isNaN(sliceVal)) {
@@ -47,28 +51,20 @@ angular.module('pieGenApp')
 
     };
 
-    $scope.updateSliceInfo = function(sliceLbl, sliceVal) {
-      if (sliceVal === "" || typeof sliceVal === "undefined" || isNaN(sliceVal)) {
+    $scope.updateSliceInfo = function(slice) {
+      if (slice.name === "" || typeof slice.value === "undefined" || isNaN(slice.value)) {
         return;
       }
 
-      var newSlice = {
-        "name": sliceLbl,
-        "value": sliceVal
-      };
-
-      pieData.updateSlice($scope.pie, newSlice).then(function(d) {
-          
+      pieData.updateSlice($scope.pie, slice).then(function(d) {
+          $scope.loadSlices();
       });
 
     };
 
     $scope.deleteSlice = function(slice) {
       pieData.deleteSlice($scope.pie, slice).then(function(d) {
-          var index = $scope.slices.indexOf(slice);
-          if(index >=0){
-            $scope.slices.slice(index,1);
-          }
+          $scope.loadSlices();
       });
     };
 
