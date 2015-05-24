@@ -15,7 +15,7 @@ angular.module('pieGenApp')
 				$scope.alerts = AlertMngr.alerts;
 
 				$scope.closeAlert = function(index) {
-				    AlertMngr.alerts.splice(index, 1);
+					AlertMngr.alerts.splice(index, 1);
 				};
 			}
 		};

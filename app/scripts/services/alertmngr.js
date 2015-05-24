@@ -13,23 +13,20 @@ angular.module('pieGenApp')
 
 		AlertMngr.alerts = [];
 
-		AlertMngr.removeAlert = function(alrt){
-
-			var indx = AlertMngr.alerts.indexOf(alrt);
-			if(indx >= 0){
-				AlertMngr.alerts.splice(indx,1);
-			}
-		};
-
 		AlertMngr.addAlert = function(msg, type) {
 
 			var alrt = {
 				type: type,
 				msg: msg
 			}
-
 			AlertMngr.alerts.push(alrt);
-			//$timeout(AlertMngr.removeAlert(alrt), 5000);
+			$timeout(function() {
+				if (AlertMngr.alerts.length > 0) {
+					angular.forEach(AlertMngr.alerts, function(value, key) {
+						AlertMngr.alerts.splice(key, 1);
+					});
+				}
+			}, 8000);
 		};
 
 		return AlertMngr;
