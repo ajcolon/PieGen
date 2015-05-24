@@ -30,6 +30,8 @@ angular.module('pieGenApp')
                 transitionDuration: 500,
                 labelThreshold: 0.01,
                 color: ["#363534", "#8A8987", "#4A4948", "#C9C8C5", "#7F7F7D", "#403F3E", "#8C8B89"],
+                //color: ["#079DFB", "#A8643F", "#39BF68", "#F2E96B", "#A60F0F", "#403F3E", "#8C8B89"],
+                //color: ["#F2385A", "#F5A503", "#E9F1DF", "#4AD9D9", "#36B1BF", "#403F3E", "#8C8B89"],
                 tooltipContent: function(key, y, e, graph) {
                     return '<div class="pie-tooltip"><h3 style="background-color: ' + e.color + '">' + key + '</h3>' + '<p>' + y + '</p></div>';
                 },

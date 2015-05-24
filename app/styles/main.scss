@@ -33,6 +33,7 @@ body {
   color: #fff;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
+  font-family: monospace;
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -186,8 +187,7 @@ alert-controller{
   margin: auto;
   border: 1px solid white;
   padding: 10px;
-  border-radius: 14px;
-  font-family: sans-serif;
+  border-radius: 0px;
   margin-bottom: 25px;
   font-size: 20px;
   padding-bottom: 38px;
@@ -200,7 +200,7 @@ alert-controller{
 
 .pie-box{
     border: 1px solid rgb(194, 193, 193);
-  border-radius: 10px;
+  border-radius: 0px;
   &:hover{
       background-color: rgba(255, 255, 255, 0.07);
   }
@@ -213,7 +213,7 @@ alert-controller{
 
 .view-container{
   border:0ßpx solid gray;
-  height:700px;
+  height:524px;
   overflow: auto;
 }
 
@@ -230,7 +230,7 @@ pie-chart{
 .pie-manager-container{
   height: 600px;
   border: 1px solid rgb(232, 232, 232);
-  border-radius: 23px;
+  border-radius: 0px;
   overflow: hidden;
 
   input[type="text"]{
@@ -252,14 +252,14 @@ pie-chart{
       border: 1px solid gray !important;
       width: 50px;
       margin-top: 6px;
-      border-radius:3px;
+      border-radius:0px;
     }
 
     .slices{
       margin-top: 15px;
       .add-slice-btn{
         border:1px solid gray;
-        border-radius: 3px;
+        border-radius: 0px;
         padding: 3px;
         &:hover{
           background-color: rgb(126, 126, 126);
@@ -276,19 +276,19 @@ pie-chart{
 
      .pie-slices{
         border: 1px solid gray;
-        border-radius: 6px;
+        border-radius: 0px;
         margin-bottom: 3px;
         padding-top: 2px;
         padding-bottom: 2px;
         input[type="text"]{
-          width:40%;
+          width:35%;
         }
       }
 
       .delete-slice-btn{
         cursor:pointer;
         padding: 3px;
-        border-radius:2px;
+        border-radius:0px;
         border:1px solid transparent;
         &:hover{
           color: white;
@@ -311,7 +311,7 @@ pie-chart{
   width: 38%;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 5px;
+  border-radius: 0px;
   padding-top: 10px;
   padding-bottom: 10px;
   &:hover{

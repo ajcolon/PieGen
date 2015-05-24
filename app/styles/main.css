@@ -29,7 +29,8 @@ body {
 body {
   color: #fff;
   text-align: center;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  font-family: monospace; }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .site-wrapper {
@@ -159,8 +160,7 @@ alert-controller {
   margin: auto;
   border: 1px solid white;
   padding: 10px;
-  border-radius: 14px;
-  font-family: sans-serif;
+  border-radius: 0px;
   margin-bottom: 25px;
   font-size: 20px;
   padding-bottom: 38px;
@@ -171,7 +171,7 @@ alert-controller {
 
 .pie-box {
   border: 1px solid #c2c1c1;
-  border-radius: 10px; }
+  border-radius: 0px; }
   .pie-box:hover {
     background-color: rgba(255, 255, 255, 0.07); }
   .pie-box .delete {
@@ -181,7 +181,7 @@ alert-controller {
 
 .view-container {
   border: 0ßpx solid gray;
-  height: 700px;
+  height: 524px;
   overflow: auto; }
 
 pie-chart {
@@ -193,7 +193,7 @@ pie-chart {
 .pie-manager-container {
   height: 600px;
   border: 1px solid #e8e8e8;
-  border-radius: 23px;
+  border-radius: 0px;
   overflow: hidden; }
   .pie-manager-container input[type="text"] {
     text-align: center;
@@ -210,12 +210,12 @@ pie-chart {
       border: 1px solid gray !important;
       width: 50px;
       margin-top: 6px;
-      border-radius: 3px; }
+      border-radius: 0px; }
     .pie-manager-container .pie-canvas .slices {
       margin-top: 15px; }
       .pie-manager-container .pie-canvas .slices .add-slice-btn {
         border: 1px solid gray;
-        border-radius: 3px;
+        border-radius: 0px;
         padding: 3px; }
         .pie-manager-container .pie-canvas .slices .add-slice-btn:hover {
           background-color: #7e7e7e;
@@ -225,16 +225,16 @@ pie-chart {
       border-right: 1px solid gray; }
     .pie-manager-container .pie-canvas .pie-slices {
       border: 1px solid gray;
-      border-radius: 6px;
+      border-radius: 0px;
       margin-bottom: 3px;
       padding-top: 2px;
       padding-bottom: 2px; }
       .pie-manager-container .pie-canvas .pie-slices input[type="text"] {
-        width: 40%; }
+        width: 35%; }
     .pie-manager-container .pie-canvas .delete-slice-btn {
       cursor: pointer;
       padding: 3px;
-      border-radius: 2px;
+      border-radius: 0px;
       border: 1px solid transparent; }
       .pie-manager-container .pie-canvas .delete-slice-btn:hover {
         color: white;
@@ -248,7 +248,7 @@ pie-chart {
   width: 38%;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 5px;
+  border-radius: 0px;
   padding-top: 10px;
   padding-bottom: 10px; }
   .pie-update-edit:hover {

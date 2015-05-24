@@ -58,14 +58,17 @@ angular.module('pieGenApp')
       };
 
       pieData.updateSlice($scope.pie, newSlice).then(function(d) {
-
+          
       });
 
     };
 
     $scope.deleteSlice = function(slice) {
       pieData.deleteSlice($scope.pie, slice).then(function(d) {
-
+          var index = $scope.slices.indexOf(slice);
+          if(index >=0){
+            $scope.slices.slice(index,1);
+          }
       });
     };
 

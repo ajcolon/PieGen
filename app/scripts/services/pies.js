@@ -11,7 +11,8 @@ angular.module('pieGenApp')
   .factory('pieData', function($http, AlertMngr, $q) {
     var serverAddr = "https://pie-chart.herokuapp.com/";
     var header = {
-      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      //'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      'Content-type': 'application/json'
     };
     var pieService = {
       getPies: function() {
@@ -77,12 +78,12 @@ angular.module('pieGenApp')
         var jsonString = $.param(pie);
         var deferred = $q.defer();
         $http({
-          method: 'DELETE',
+          method: 'POST',
           url: req,
           headers: header,
           data: jsonString
         }).success(function(response) {
-          deferred.resolve(response.data);
+          deferred.resolve(response);
           AlertMngr.addAlert("Pie Created", "success");
         }).error(function(response) {
           AlertMngr.addAlert("Pie could not be Created", "danger");
