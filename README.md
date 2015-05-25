@@ -1,4 +1,4 @@
-# pie-gen
+# PieGen
 
 PieGen is a project created by Albith Joel Colon. 
 The web application serves as a frontend interface for the pie creation api service at https://pie-chart.herokuapp.com/. 
