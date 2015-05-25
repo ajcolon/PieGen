@@ -9,8 +9,8 @@
  */
 angular.module('pieGenApp')
   .factory('pieData', function($http, AlertMngr, $q) {
-    var serverAddr = "https://pie-chart.herokuapp.com/";
-    //var serverAddr = "http://localhost:5000/"; //Validation Server
+    //var serverAddr = "https://pie-chart.herokuapp.com/";
+    var serverAddr = "http://localhost:5000/"; //Validation Server
     var header = {
       'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
       //'Content-type': 'application/json'
