@@ -1,7 +1,7 @@
 # PieGen
 
 PieGen is a project created by Albith Joel Colon. 
-The web application serves as an interface for the pie creation API (more info below) 
+The web application serves as an interface for the pie creation API (more info below). 
 Within the web app the user can create, edit, delete pie charts in a very user friendly flow.
 
 Web Application Demo: https://pie-chart-ui.herokuapp.com/
