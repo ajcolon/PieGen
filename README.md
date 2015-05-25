@@ -20,3 +20,8 @@ Run `grunt` for building and `grunt serve` for preview.
 Running `grunt test` will run the unit tests with karma.
 
 Web Application hosted at: https://pie-chart-ui.herokuapp.com/
+
+## How to use
+
+The app is very simple to use for a quick overview watch the following video:
+http://goo.gl/T98PeO
