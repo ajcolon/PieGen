@@ -140,7 +140,7 @@ angular.module('pieGenApp')
           headers: header,
           data: jsonString
         }).success(function(response) {
-          deferred.resolve(response.data);
+          deferred.resolve(response);
           AlertMngr.addAlert("Pie Slice Updated", "success");
         }).error(function(response) {
           AlertMngr.addAlert("Pie Slice Could not Be Updated", "danger");

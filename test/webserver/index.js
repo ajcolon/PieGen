@@ -101,6 +101,8 @@ app.patch('/pie_charts/:pid/slices/:sid', function(request, response) {
 	var sliceid = request.params.sid;
 	var slice = request.body;
 
+	console.log("slice: "+ slice);
+
 	var pietoget = data.filter(function(val) {
 		return val.id == pieid;
 	});
@@ -111,11 +113,17 @@ app.patch('/pie_charts/:pid/slices/:sid', function(request, response) {
 		return val.id == sliceid;
 	});
 
+	console.log("slicetoget" + JSON.stringify(slicetoget));
+
 	var sindex = data[pindex].slices.indexOf(slicetoget[0]);
+
+	console.log("sindex" + sindex);
 	
-	data[pindex].slices[sindex].name = slice.title;
-	data[pindex].slices[sindex].value = slice.description;
+	data[pindex].slices[sindex].name = slice.name;
+	data[pindex].slices[sindex].value = slice.value;
 	data[pindex].slices[sindex].updated_at = new Date();
+
+	
 
 	response.send(data[pindex].slices[sindex]);
 });
