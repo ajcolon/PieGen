@@ -24,4 +24,4 @@ Web Application hosted at: https://pie-chart-ui.herokuapp.com/
 ## How to use
 
 The app is very simple to use for a quick overview watch the following video:
-http://goo.gl/T98PeO
+http://goo.gl/q8B1ij
