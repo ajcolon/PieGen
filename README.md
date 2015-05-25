@@ -23,7 +23,10 @@ Running `grunt test` will run the unit tests with karma.
 The app is very simple to use for a quick overview watch the following video:
 http://goo.gl/q8B1ij
 
-## Extra
+## More Info
 
 Information about the REST API can be found at:
 https://github.com/treasure-data/pie-chart-api 
+
+Developer Info:
+www.albithjoelcolon.com
